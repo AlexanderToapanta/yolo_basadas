@@ -1,0 +1,33 @@
+ARCHIVOS PARA ANALIZAR EL MAPA DE CALOR CON GROQ
+================================================
+
+1. Haz una copia de seguridad de tu proyecto y de tienda_logs.db.
+
+2. Reemplaza en la carpeta del proyecto estos cuatro archivos:
+   - database.py
+   - tracker_principal.py
+   - dashboard.py
+   - agente_resumen.js
+
+3. Conserva en la misma carpeta:
+   - yolo11n.pt
+   - tienda_logs.db (no es obligatorio reemplazarla)
+   - .env
+
+4. La primera ejecución crea automáticamente la tabla heatmap_snapshots
+   dentro de la base existente. No elimina la tabla logs ni sus datos.
+
+5. Inicia el dashboard con:
+   python -m streamlit run dashboard.py
+
+6. Abre "Control de Cámara" y presiona "Iniciar Cámara Nativa".
+   El tracker guarda una muestra de las nueve zonas cada cinco segundos.
+
+7. Vuelve a "Resumen del Día", selecciona fecha y horas, y presiona
+   "Generar resumen con Groq". Groq recibirá porcentajes relativos por zona,
+   no imágenes ni temperaturas.
+
+NOTA DE SEGURIDAD
+-----------------
+La clave de Groq que fue compartida previamente debe revocarse. Crea una clave
+nueva y colócala únicamente en .env. No subas .env a GitHub.
